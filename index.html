@@ -1,1 +1,48 @@
-comming soon
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>WEB_App</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1>WEB_App - html-css-js app that demonstrates some basic functionalities: animation, audio, video</h1>
+
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#animation" aria-controls="home" role="tab" data-toggle="tab">Animatie</a></li>
+
+      <li role="presentation">
+        <a href="#audio" aria-controls="audio" role="tab" data-toggle="tab">Audio</a></li>
+
+      <li role="presentation">
+        <a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="animation">
+        Animation content
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="audio">
+        Audio content
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="video">
+        Video content
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/webapp.js"></script>
+  </body>
+</html>
