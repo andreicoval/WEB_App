@@ -31,11 +31,27 @@
       </div>
 
       <div role="tabpanel" class="tab-pane" id="audio">
-        Audio content
+        <audio controls>
+          <source src="assets/sleepAway.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
       </div>
 
       <div role="tabpanel" class="tab-pane" id="video">
-        Video content
+          
+          <!--Playing Video from local file-->
+          <video width="320" height="240" controls>
+            <source src="assets/carl.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+          <br>
+
+          <!--Playing video from Youtube-->
+          <iframe width="300" height="300"
+            src="http://www.youtube.com/embed/qN7uGUn93Gw?control=1">
+          </iframe>
+        
       </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
