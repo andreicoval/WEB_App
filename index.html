@@ -3,13 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>WEB_App</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/webapp.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {font-size: 1.6em;}
+      .hidden {display: none;}
+      .show {display: inline !important;}
+      button {
+        border: 2px solid black; background: #E5E4E2;
+        font-size: .5em; font-weight: bold; color: black;
+        padding: .8em 2em;
+        margin-top: .4em;
+      }
+    </style>
   </head>
 
   <body>
@@ -42,6 +54,9 @@
 
             <li role="presentation">
               <a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+
+            <li role="presentation">
+              <a href="#event" aria-controls="event" role="tab" data-toggle="tab">Event</a></li>
           </ul>
 
           <div class="tab-content">
@@ -74,6 +89,47 @@
                 </iframe>
               
             </div>
+
+            <div role="tabpanel" class="tab-pane" id="event">
+              
+              <script>
+                function openAlert(mess){
+                  alert(mess);
+                }
+              </script>
+
+              <a href="JavaScript:void(0)" onClick="alert('Salut');">Spune salut</a><br />
+              <a href="JavaScript:void(0)" onClick="openAlert('Buna, ce faci');">Spune ceva</a><br />
+              <a href="JavaScript:void(0)" 
+                onmouseover="this.style.color='blue';"
+                onmouseout="this.style.color='green';"
+                ondblclick="this.text='Ai facut dublu click';"
+                onmousedown="this.text='Nu apasa prea tare';"
+                onmouseup="this.text='Iti multumim'">Fa-ma albastru</a><br />
+
+              <input type="text" id="randInput" onChange="var dataEntered=document.getElementById('randInput').value; alert('Utilizatorul a scris ' + dataEntered)">
+
+              <form action="#" id="sampForm">
+                
+                <input id="charInput" type="text">
+
+                <p id="keyData">Date Importante</p>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+
+              </form><br />
+
+              <img src="assets/koala.jpg" id="logo" width="320px" height="240px">
+
+              <button id="logoButton">Afiseaza Logo</button>
+
+              <input id="mouseInput" type="text" size="30"><br />
+
+              Mouse X: <input type="text" id="mouseX"><br />
+              Mouse Y: <input type="text" id="mouseY"><br />
+                         
+            </div>
           </div>
           
         </div>
@@ -91,5 +147,50 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.js"></script>
     <script src="js/webapp.js"></script>
+
+
+              <script>
+                
+                function getChar(event){
+                  if(event.which == null){
+                    return String.fromCharCode(event.keyCode);
+                  } else if(event.which != 0 && event.charCode != 0){
+                    return String.fromCharCode(event.which);
+                  } else {
+                    return null;
+                  }
+                }
+
+                $('#charInput').onkeypress = function(event){
+                  var char = getChar(event  || window.event)
+                  if(!char) return false;
+
+                  $('#keyData').innerHTML = char + "was clicked";
+                  return true;
+                }
+
+                document.getElementById('charInput').onselect = function(event){
+                  document.getElementById('keyData').innerHTML = "Textul a fost selectat";
+                }
+
+                document.getElementById('logoButton').onclick = function(event){
+                  document.getElementById('logo').className = "show";
+                }
+
+                document.getElementById('logo').onclick = function(event){
+                  document.getElementById('logo').className = "hidden";
+                }
+
+                document.getElementById('logo').onmouseover = function(event){
+                  document.getElementById('logo').src = "assets/penguins.jpg";
+                  document.getElementById('mouseInput').value = "Mouse-ul este pe imagine";
+                }
+
+                document.getElementById('logo').onmouseout = function(event){
+                  document.getElementById('logo').src = "assets/koala.jpg";
+                  document.getElementById('mouseInput').value = "Mouse-ul a parasit imaginea";
+                }
+
+              </script>
   </body>
 </html>
