@@ -13,50 +13,78 @@
   </head>
 
   <body>
-    <h1>WEB_App - html-css-js app that demonstrates some basic functionalities: animation, audio, video</h1>
+    <div id="container">
+      
+      <div id="header">
+        <h1>WEB_App</h1>
+      </div>
 
-    <ul id="myTabs" class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active">
-        <a href="#animation" aria-controls="home" role="tab" data-toggle="tab">Animatie</a></li>
+      <div id="content">
 
-      <li role="presentation">
-        <a href="#audio" aria-controls="audio" role="tab" data-toggle="tab">Audio</a></li>
+        <div id="nav">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a class="selected" href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+        </div>
 
-      <li role="presentation">
-        <a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
-    </ul>
+        <div id="main">
 
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="animation">
-        <div class="animation-box">
+
+          <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#animation" aria-controls="home" role="tab" data-toggle="tab">Animatie</a></li>
+
+            <li role="presentation">
+              <a href="#audio" aria-controls="audio" role="tab" data-toggle="tab">Audio</a></li>
+
+            <li role="presentation">
+              <a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="animation">
+              <div class="animation-box">
+                
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="audio">
+              <audio controls>
+                <source src="assets/sleepAway.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="video">
+                
+                <!--Playing Video from local file-->
+                <video width="400" height="300" controls>
+                  <source src="assets/carl.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                
+                <br>
+
+                <!--Playing video from Youtube-->
+                <iframe width="400" height="300"
+                  src="http://www.youtube.com/embed/qN7uGUn93Gw?control=1">
+                </iframe>
+              
+            </div>
+          </div>
           
         </div>
-      </div>
-
-      <div role="tabpanel" class="tab-pane" id="audio">
-        <audio controls>
-          <source src="assets/sleepAway.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div role="tabpanel" class="tab-pane" id="video">
-          
-          <!--Playing Video from local file-->
-          <video width="320" height="240" controls>
-            <source src="assets/carl.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          
-          <br>
-
-          <!--Playing video from Youtube-->
-          <iframe width="300" height="300"
-            src="http://www.youtube.com/embed/qN7uGUn93Gw?control=1">
-          </iframe>
         
       </div>
+      <div id="footer">
+        Copyright &copy; 2016 Andrei Coval.
+      </div>
+
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <script src="js/jquery-2.2.4.js"></script>
