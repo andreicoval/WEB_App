@@ -128,50 +128,6 @@
 
               Mouse X: <input type="text" id="mouseX"><br />
               Mouse Y: <input type="text" id="mouseY"><br />
-
-              <script>
-                
-                function getChar(event){
-                  if(event.which == null){
-                    return String.fromCharCode(event.keyCode);
-                  } else if(event.which != 0 && event.charCode != 0){
-                    return String.fromCharCode(event.which);
-                  } else {
-                    return null;
-                  }
-                }
-
-                document.getElementById('charInput').onkeypress = function(event){
-                  var char = getChar(event  || window.event)
-                  if(!char) return false;
-
-                  document.getElementById('keyData').innerHTML = char + "was clicked";
-                  return true;
-                }
-
-                document.getElementById('charInput').onselect = function(event){
-                  document.getElementById('keyData').innerHTML = "Textul a fost selectat";
-                }
-
-                document.getElementById('logoButton').onClick = function(event){
-                  document.getElementById('logo').className = "show";
-                }
-
-                document.getElementById('logo').onClick = function(event){
-                  document.getElementById('logo').className = "hidden";
-                }
-
-                document.getElementById('logo').onmouseover = function(event){
-                  document.getElementById('logo').src = "assets/penguins.jpg";
-                  document.getElementById('mouseInput').value = "Mouse-ul este pe imagine";
-                }
-
-                document.getElementById('logo').onmouseout = function(event){
-                  document.getElementById('logo').src = "assets/koala.jpg";
-                  document.getElementById('mouseInput').value = "Mouse-ul a parasit imaginea";
-                }
-
-              </script>
                          
             </div>
           </div>
@@ -191,5 +147,50 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.js"></script>
     <script src="js/webapp.js"></script>
+
+
+              <script>
+                
+                function getChar(event){
+                  if(event.which == null){
+                    return String.fromCharCode(event.keyCode);
+                  } else if(event.which != 0 && event.charCode != 0){
+                    return String.fromCharCode(event.which);
+                  } else {
+                    return null;
+                  }
+                }
+
+                $('#charInput').onkeypress = function(event){
+                  var char = getChar(event  || window.event)
+                  if(!char) return false;
+
+                  $('#keyData').innerHTML = char + "was clicked";
+                  return true;
+                }
+
+                document.getElementById('charInput').onselect = function(event){
+                  document.getElementById('keyData').innerHTML = "Textul a fost selectat";
+                }
+
+                document.getElementById('logoButton').onclick = function(event){
+                  document.getElementById('logo').className = "show";
+                }
+
+                document.getElementById('logo').onclick = function(event){
+                  document.getElementById('logo').className = "hidden";
+                }
+
+                document.getElementById('logo').onmouseover = function(event){
+                  document.getElementById('logo').src = "assets/penguins.jpg";
+                  document.getElementById('mouseInput').value = "Mouse-ul este pe imagine";
+                }
+
+                document.getElementById('logo').onmouseout = function(event){
+                  document.getElementById('logo').src = "assets/koala.jpg";
+                  document.getElementById('mouseInput').value = "Mouse-ul a parasit imaginea";
+                }
+
+              </script>
   </body>
 </html>
