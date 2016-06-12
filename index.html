@@ -97,18 +97,19 @@
                   alert(mess);
                 }
               </script>
-
+<!--afiseaza o fereastra alert cu un mesaj introdus de noi-->
               <a href="JavaScript:void(0)" onClick="alert('Salut');">Spune salut</a><br />
               <a href="JavaScript:void(0)" onClick="openAlert('Buna, ce faci');">Spune ceva</a><br />
+<!--schimbam culori/text atunci cand ne miscam cu mouseul-->               
               <a href="JavaScript:void(0)" 
                 onmouseover="this.style.color='blue';"
                 onmouseout="this.style.color='green';"
                 ondblclick="this.text='Ai facut dublu click';"
                 onmousedown="this.text='Nu apasa prea tare';"
                 onmouseup="this.text='Iti multumim'">Fa-ma albastru</a><br />
-
+<!--textul introdus de utiliator apare in fereastra alert-->
               <input type="text" id="randInput" onChange="var dataEntered=document.getElementById('randInput').value; alert('Utilizatorul a scris ' + dataEntered)">
-
+<!--cream un form cu 2 butoane-->
               <form action="#" id="sampForm">
                 
                 <input id="charInput" type="text">
@@ -119,15 +120,17 @@
                 <input type="reset" value="Reset">
 
               </form><br />
-
+<!--afisam o imagine-->
               <img src="assets/koala.jpg" id="logo" width="320px" height="240px">
-
+<!--cream un buton care va manipula imaginea-->
               <button id="logoButton">Afiseaza Logo</button>
 
               <input id="mouseInput" type="text" size="30"><br />
-
+<!--afisam coordonatele mouse-ului-->
               Mouse X: <input type="text" id="mouseX"><br />
               Mouse Y: <input type="text" id="mouseY"><br />
+<!--stergem toate inputurile introduse anterior-->
+              <button id="clearInputs">Sterge Inputurile</button>
                          
             </div>
           </div>
@@ -150,7 +153,7 @@
 
 
               <script>
-                
+//cream o functie care sa ne citeasca caracaterul pe care il introducem de la tastatura               
                 function getChar(event){
                   if(event.which == null){
                     return String.fromCharCode(event.keyCode);
@@ -160,19 +163,19 @@
                     return null;
                   }
                 }
-
-                $('#charInput').onkeypress = function(event){
+//introduem de la tastatura si afisam ce introducem
+                document.getElementById('charInput').onkeypress = function(event){
                   var char = getChar(event  || window.event)
                   if(!char) return false;
 
-                  $('#keyData').innerHTML = char + "was clicked";
+                  document.getElementById('keyData').innerHTML = char + "was clicked";
                   return true;
                 }
-
+//selectam textul introfdus
                 document.getElementById('charInput').onselect = function(event){
                   document.getElementById('keyData').innerHTML = "Textul a fost selectat";
                 }
-
+//evenimente cu Logo
                 document.getElementById('logoButton').onclick = function(event){
                   document.getElementById('logo').className = "show";
                 }
@@ -189,6 +192,30 @@
                 document.getElementById('logo').onmouseout = function(event){
                   document.getElementById('logo').src = "assets/koala.jpg";
                   document.getElementById('mouseInput').value = "Mouse-ul a parasit imaginea";
+                }
+//afisam coordonatele X si Y
+                document.body.onmousemove = function(e){
+                  e = e || window.event;
+
+                  var pageX = e.pageX;
+                  var pageY = e.pageY;
+
+                  if(pageX === undefined){
+                    pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                  }
+
+                  document.getElementById('mouseX').value = pageX;
+                  document.getElementById('mouseY').value = pageY;
+                };
+//stergem inputurile introduse de noi anterior
+                document.getElementById('clearInputs').onclick = function(event){
+                  var inputElements = document.getElementsByTagName('input');
+                  for(var i = 0; i < inputElements.length; i++){
+                    if(inputElements[i].type == 'text'){
+                      inputElements[i].value = "";
+                    }
+                  }
                 }
 
               </script>
